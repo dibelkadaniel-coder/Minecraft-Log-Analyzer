@@ -1,0 +1,238 @@
+:root {
+    /* Sofistikovanější paleta barev - matná temná a čistá šedá */
+    --bg-dark: #0b0f19;
+    --bg-card: #111827;
+    --bg-input: #1f2937;
+    
+    /* Přirozenější, smaragdově zelená namísto křiklavé neonové */
+    --primary: #10b981;
+    --primary-hover: #059669;
+    
+    /* Neutrální tóny pro texty a ohraničení */
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --border: #374151;
+    --border-focus: #4b5563;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    text-align: left; /* Změna na zarovnání vlevo - působí to více jako aplikace než jako vizitka */
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 1.75rem; /* Menší, civilnější velikost */
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.header h1 i {
+    color: var(--primary); /* Ikona dostane akcentní barvu, text zůstane bílý */
+    font-size: 1.5rem;
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Očištěný kontejner bez divokých přechodů a stínů */
+.upload-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px; /* Ostřejší, profesionálnější rohy */
+    padding: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Jemnější indikace přetažení souboru */
+.upload-container.dragover {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.file-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    cursor: pointer;
+}
+
+.file-hint:hover {
+    color: var(--text-main);
+}
+
+.file-hint i {
+    color: var(--text-muted);
+}
+
+textarea {
+    width: 100%;
+    height: 280px;
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    resize: vertical;
+    transition: border-color 0.15s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--border-focus); /* Při psaní neruší zelená barva */
+}
+
+/* Tlačítko upravené do stylu moderních vývojářských nástrojů */
+button {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    width: auto; /* Tlačítko už není obří přes celý web, roztáhne se podle textu */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #374151;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* Minimalistické načítání */
+.loading {
+    text-align: left;
+    color: var(--text-muted);
+    display: none;
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.loading i {
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+/* Výsledný box - nyní vypadá jako čistý report */
+.result-box {
+    margin-top: 32px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    display: none;
+}
+
+.result-box h3 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.result-box h3 i {
+    color: var(--primary);
+}
+
+/* Formátování textu z AI - čisté, čitelné, žádné neonové barvy */
+.ai-response {
+    color: #d1d5db;
+    font-size: 0.95rem;
+}
+
+.ai-response p {
+    margin-bottom: 12px;
+}
+
+/* Výrazné bloky s chybou v textu z AI */
+.ai-response strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Inline kód */
+.ai-response code {
+    font-family: 'Fira Code', monospace;
+    background-color: var(--bg-input);
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #f3f4f6;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+}
+
+/* Bloky kódu */
+.ai-response pre {
+    background-color: #030712;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    margin: 16px 0;
+}
+
+.ai-response pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #e5e7eb;
+    border: none;
+}
+
+.ai-response ul, .ai-response ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.ai-response li {
+    margin-bottom: 4px;
+}

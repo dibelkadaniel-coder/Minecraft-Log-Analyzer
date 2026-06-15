@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analýza Minecraft Logu.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body>
+
+    <div class="header">
+        <h1><i class="fa-solid fa-terminal"></i> AI Minecraft Log Analyzer</h1>
+        <p>Přetáhni soubor s logem nebo vlož text.</p>
+    </div>
+    
+    <div class="upload-container" id="dropZone">
+        <div class="file-hint" id="fileHint">
+            <i class="fa-solid fa-file-import"></i>
+            <span>Sem přetáhni soubor <strong>latest.log</strong> / <strong>crash-report.txt</strong> nebo klikni pro nahrání</span>
+            <input type="file" id="fileInput" style="display: none;" accept=".log,.txt">
+        </div>
+        <textarea id="logInput" placeholder="Nebo sem text logu vlož ručně pomocí Ctrl+V (Cmd+V)..."></textarea>
+    </div>
+
+    <button id="analyzeBtn" onclick="analyzeLog()">
+        <i class="fa-solid fa-brain"></i> Spustit inteligentní analýzu
+    </button>
+
+    <div id="loading" class="loading">
+        <i class="fa-solid fa-circle-notch"></i> Umělá inteligence analyzuje strukturu logu a hledá řešení...
+    </div>
+
+    <div id="result" class="result-box">
+        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Výsledek AI Analýzy</h3>
+        <div id="aiResponse" class="ai-response"></div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
